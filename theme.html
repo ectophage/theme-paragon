@@ -25,9 +25,8 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;400;600;900&display=swap" rel="stylesheet">
 
     <!-- FONT AWESOME IMPORT
          FIND PRETTY ICONS FOR YOUR TAGS HERE https://fontawesome.com/icons?d=gallery -->
@@ -97,30 +96,31 @@
         }
 
         h1{
+            font-size:1.5rem;
             text-align:left;
-            font-weight:300;
             color:{color:bold and italic};
-            /* font-family: 'Noto Sans JP', sans serif;*/
-            font-family: Oswald, sans serif;
-            font-weight:200;
+            font-family: 'Roboto Slab', serif;
+            font-weight:400;
             letter-spacing:-1px;
         }
 
         h2{
-            color:{color:bold and italic};
             font-size:1.3rem;
+            text-align:left;
+            color:{color:bold and italic};
+            font-family: 'Roboto Slab', serif;
             font-weight:400;
-            font-family: Oswald, sans serif;
-            font-weight:200;
-            letter-spacing:1px;
+            letter-spacing:-1px;
         }
 
         h3{
-            font-size:.9rem;
+            font-size:1.1rem;
+            text-align:left;
             color:{color:bold and italic};
-            font-family: Oswald, sans serif;
-            font-weight:200;
-            letter-spacing:1px;
+            font-family: 'Roboto Slab', serif;
+            font-weight:400;
+            letter-spacing:-1px;
+        }
         }
 
         pre{
@@ -183,10 +183,7 @@
         
         h1.title{
             font-size:1.5rem;
-            font-weight:400;
-            letter-spacing:1px;
-            font-family:Oswald, sans serif;
-            font-weight:200;
+            letter-spacing:0;
         }
         
         h1.title:hover{
@@ -417,7 +414,7 @@
 <body>
 
 <div class="sidebar">
-    <h1 class="title">{title}</h1>
+    <a href="/"><h1 class="title">{description}</h1></a>
     <!--<div class="description">{description}</div>-->
 
     <div class="navigation">
@@ -425,7 +422,7 @@
                 <a class="nav" href="{text:link 1}"><span class="nav-number">02.</span> guidelines</a>
                 <a class="nav" href="{text:link 2}"><span class="nav-number">03.</span> tl;dr</a>
         <a class="nav" href="https://github.com/ectophage"><span class="nav-number">04.</span> THEME</a>
-        </div><br/><br/>
+        </div>
         <div class="pagination">
     {block:Pagination}
         {block:PreviousPage}<a href="{PreviousPage}" style="color:#000;text-shadow:none;"><i class="fas fa-chevron-left"></i></a>{/block:PreviousPage}
