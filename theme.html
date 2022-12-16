@@ -62,8 +62,7 @@
 
         body {
             background-color:{color:body background};
-            /* background: #fff url({image:background}) no-repeat fixed right bottom; */
-            background-size: 700px auto;
+            background: #000 url({image:background});
             font: 1rem 'Lato', sans serif;
             color:{color:text};
             overflow-x: hidden;
@@ -169,10 +168,6 @@
             padding:5px 15px 15px 15px;
         }
         
-        img{
-            border-radius:5px;
-        }
-        
         .description{
             margin-bottom:1rem;
         }
@@ -219,29 +214,39 @@
             text-transform:uppercase;
             padding: .5rem;
         }
+        
+        .pinned img{
+            height:7px !important; /* this is jank don't @ me */
+        }
 
         /* ----------------------------------- CONTAINER SETUP ----------------------------------- */
 
 
         /* this is so jank and I hate it */
         .posts{
-            margin: 0 0 0 3rem;
-            width:calc(540px + 4rem);
-            padding:2rem;
+            margin: 2rem 0 0 3rem;
+            width:calc(500px + 4rem);
+        }
+        
+        .entry-wrapper{
+            background:{color:body background};
+            margin-bottom:4rem;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, .1);
         }
 
         .entry{
-            width: 540px;
+            width:500px;
             line-height:1.8rem;
+            margin:0 2rem;
+            padding:0;
         }
 
         /* ------------------ FOOTER ------------------ */
 
         .footer{
-            padding:1rem 0;
-            margin-bottom:4rem;
             color:{color:text};
             text-transform:uppercase;
+            padding:1rem 0 0 2rem;
         }
 
         .footer a{
@@ -277,26 +282,16 @@
 
         /* ------------------ PHOTOS & PHOTOSETS ------------------ */
         
-        .photo{
-            width:100%;
-        }
-
-        .npf_indented{
-            margin-top:1rem;
-        }
-        
-        .tmblr-full{
-            margin-bottom:-4px;
-        }
-        
-        .tmblr-full img{
+        .post_media_photo_anchor{
             width:100%;
         }
         
-        .npf_row{
-            margin:0 !important;
+        .post-content div.npf_row .npf_col figure img, .post div.npf_row .npf_col figure img, body div.npf_row .npf_col figure img {
+            width: 100%;
+            height:auto !important;
+            object-fit: contain !important; /* this is also jank */
+    
         }
-
         /* ------------------ QUOTE ------------------ */
 
         /* I don't know if the wrapper is entirely necessary but I'm using it anyway */
@@ -414,8 +409,8 @@
 <body>
 
 <div class="sidebar">
-    <a href="/"><h1 class="title">{description}</h1></a>
-    <!--<div class="description">{description}</div>-->
+    <a href="/"><h1 class="title">{title}</h1></a>
+    <div class="description">{description}</div>
 
     <div class="navigation">
         <a class="nav" href="/ask"><span class="nav-number">01.</span> inbox</a>
@@ -441,7 +436,8 @@
 
     <section class="posts">
         {block:Posts}
-        <div class="entry" id="{PostID}">
+        <div class="entry-wrapper">
+        <div class="entry {TagsAsClasses}" id="{PostID}">
 
             <!-- POST: TEXT -->
             {block:Text}<div class="txt">{block:Title}<h1>{Title}</h1>{/block:Title}{Body}</div>{/block:Text}
@@ -543,13 +539,9 @@
             
             </div> <!-- / FOOTER -->
 
-        {/block:Date}
+        {/block:Date}</div>
 
         {/block:Posts}
-
-        <!-- POST NOTES -->
-        {block:PostNotes}<div class="post-notes">{PostNotes}</div>{/block:PostNotes}
-        <!-- / POST NOTES -->
 
 
     </section> <!-- / POSTS -->
